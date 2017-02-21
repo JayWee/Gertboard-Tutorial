@@ -177,52 +177,12 @@ GPIO.setup(23,GPIO.OUT) #gruenf
 </code></pre>
 
 Alle als output definiert und dann mittels <code>time.sleep</code> verschiedene Blitzlichter und Morse-Codes erstellt.  
-Beispiel SOS:   
+Beispiel:   
 <pre><code>
 GPIO.output(18,GPIO.HIGH)  
 time.sleep(0.5)  
 GPIO.output(18,GPIO.LOW)  
 time.sleep(0.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(0.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(0.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(0.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(1.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(1.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(0.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(1.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(0.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(1.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(1.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(0.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(0.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(0.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(0.5)  
-
-GPIO.output(18,GPIO.HIGH)  
-time.sleep(0.5)  
-GPIO.output(18,GPIO.LOW)  
-time.sleep(3.5)  
 </code></pre>
 
 Um daraus eine Schleife zu machen setzt kann man einen Counter einsetzen. Am Anfang des Programmes <code>count = 0</code> setzen und dann <code>while (count < x):</code> das sieht dann so aus:  
