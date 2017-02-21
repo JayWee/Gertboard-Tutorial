@@ -4,23 +4,23 @@ Der Raspberry Pi ist ein Mini-Computer, der vieles von dem, was ein normaler Com
 Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich. Das neueste Modell (<a href="https://www.rasppishop.de/Raspberry-Pi-3-Modell-B-mit-12-GHz-QuadCore-64Bit-CPU">Raspberry Pi 3 Modell B</a>) hat auch WLAN und Bluetooth an Board.
 
 <h2>Inhalt</h2>
-<ol style="list-style-type:none">
+<ul style="list-style-type:none">
     <li><a href="#Inbetriebnahme">1. Inbetriebnahme des Pi</a></li>
     <li><a href="#Linux">2. Linux</a>
-    <ol style="list-style-type:none">
+    <ul style="list-style-type:none">
         <li><a href="#Python">2.1 erste Programme mit Python</a>
-    </ol></li>
+    </ul></li>
     <li><a href="#Windows">3. Windows 10 IoT Core</a>
-    <ol style="list-style-type:none">
+    <ul style="list-style-type:none">
         <li><a href="#C#">3.1. Erste Programme mit C# über Windows</a></li>
-    </ol></li>
+    </ul></li>
     <li><a href="#Gertboard">4. Gertboard</a>
-    <ol style="list-style-type:none">
+    <ul style="list-style-type:none">
         <li><a href="#Einführung">4.1 Einführung </a></li>
         <li><a href="#Buffer">4.2 Nutzung der Buffer </a></li>
         <li><a href="#Program">4.3 Programme mit dem Gertboard</a></li>
-    </ol></li>
-</ol>
+    </ul></li>
+</ul>
 
 <h2 id="Inbetriebnahme">1. Inbetriebnahme des Pi</h2>
 <p>
