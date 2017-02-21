@@ -1,5 +1,3 @@
-          <h1 id="gertboard-tutorial">Gertboard Tutorial</h1>
-
 <ul>
     <li><a href="#Einleitung">1. Einleitung</a></li>
     <li><a href="#Inbetriebnahme">2. Inbetriebnahme des Pi</a></li>
@@ -23,7 +21,7 @@ Der Raspberry Pi ist ein Mini-Computer, der vieles von dem, was ein normaler Com
 Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich. Das neueste Modell hat auch WLAN und Bluetooth an Board.
 
 
-<h3 id="Inbetriebname">2. Inbetriebnahme des Pi</h3>
+<h3 id="Inbetriebnahme">2. Inbetriebnahme des Pi</h3>
 <p>
 Der Pi besitzt keine eigene interne Festplatte oder sonstigen internen Speicher. Deshalb muss man ihm einen stellen. Dies geschieht in Form einer SD-Karte (ab dem Raspberry Pi 2 eine microSD-Karte) mit mindestens 8 GB Speicher (am besten Class 10, bei Windows IoT werden SD-Karten erst ab Class 4 unterstützt).  <br />
 Es gibt zwei Betriebssysteme, die Hauptsächlich mit dem Pi benutzt werden. Vor allem ist dies Linux (Raspbian), welches eine vollständige Desktopoberfläche hat. Die Alternative ist Windows 10 IoT Core, welches allerding erst mit ab der 2 Version des Pi für diesen verfügbar ist). Dieses Betriebssystem bietet keine graphische Oberfläche, allerdings kann auf alle Funktion über ein anderen Rechner mit Windows zugegriffen werden. Ebenfalls ist es dann möglich mit [Visual Studio 2015 Community](https://www.visualstudio.com/de/), einem Compiler für diverse Sprachen(C/C#/C++/JavaScript/Visual Basic/Phython) von Microsoft, Remote-Debugging zu betreiben.
@@ -307,12 +305,12 @@ Die eben schon erwähnten Dauerstrom-Pins befinden sich in den kleine Böcken J7
 Um das Gertboard mit dem Raspberry Pi zu verbinden, muss das Gertboard auf die linken (Der Pi ist so gedreht, dass die Pins oben links liegen) 26 GPIO-Pins gesteckt werden. Bei B Modelen des Pi sind somit die vierzehn rechten Pins nicht mit dem Gertboard verbunden und auf sie kann somit nicht auf dem Gertboard zugegriffen werden. Damit die Buffer-Ausgänge auch Signale senden können müssen bei J7 (3,3V Dauerstrom) zwei der drei Pins miteinander Verbunden werden (am besten mit einem [Jumper](https://github.com/JayWee/Gertboard-Tutorial/blob/master/Shunt-Jumpers2-1383815114.jpg)).    <!---(Für die, die es interessiert: [Warum hier](#10)) -->  
 
 <h4> Arbeiten mit den LEDs und den Druckknöpfen über die Buffer </h4>
-    Um auf die LEDs zuzugreifen muss erstmal eine Verbindung zwischen den GPIO-Pins (J2) und den Buffer-Eingangs-Pins (J3) hergestellt werden. Jetzt sollten alle LEDs rot leuchten.  <br />
-    Dann muss der Hardware gesagt werden wie welcher Bufferpin genutzt werden soll (Input/Output). Dafür müssen bei einem Output die beiden Pins, die mit "Bx out" (x ist die Nummer des gewählten Buffereingangs) beschriftet sind, am besten mit einem Jumper verbunden werden. Beim Aufstecken der Jumper, sollte die entsprechende LED ausgehen. Falls nicht, sollte dies spätestens beim starten des Programms passieren.  <br />
-    Um die Druckknöpfe zu verwenden, muss man über B1-3 darauf zugreifen und entgegen der Tatsache, dass es sich um einen Input handelt, auch einen Jumper bei "Bx out" plazieren (Im Programm müssen die entsprechenden GPIO-Pinsallerdings auf Input gestellt sein). Auf die LEDs der benutzten Knöpfe kann dann nicht mehr zugegriffen werden. Diese Leuchten jetzt beim Starten des Programms. Wenn dann einer der Knöpfe gedrückt wird, geht die entsprechende LED beim Gedrückt sein aus und beim Loslassen wieder an.
+Um auf die LEDs zuzugreifen muss erstmal eine Verbindung zwischen den GPIO-Pins (J2) und den Buffer-Eingangs-Pins (J3) hergestellt werden. Jetzt sollten alle LEDs rot leuchten.  <br />
+Dann muss der Hardware gesagt werden wie welcher Bufferpin genutzt werden soll (Input/Output). Dafür müssen bei einem Output die beiden Pins, die mit "Bx out" (x ist die Nummer des gewählten Buffereingangs) beschriftet sind, am besten mit einem Jumper verbunden werden. Beim Aufstecken der Jumper, sollte die entsprechende LED ausgehen. Falls nicht, sollte dies spätestens beim starten des Programms passieren.  <br />
+Um die Druckknöpfe zu verwenden, muss man über B1-3 darauf zugreifen und entgegen der Tatsache, dass es sich um einen Input handelt, auch einen Jumper bei "Bx out" plazieren (Im Programm müssen die entsprechenden GPIO-Pinsallerdings auf Input gestellt sein). Auf die LEDs der benutzten Knöpfe kann dann nicht mehr zugegriffen werden. Diese Leuchten jetzt beim Starten des Programms. Wenn dann einer der Knöpfe gedrückt wird, geht die entsprechende LED beim Gedrückt sein aus und beim Loslassen wieder an.
 
 <h4> Arbeiten mit externen Geräten über die Buffer </h4>
-    Wenn mit externen Geräten oder LEDs gearbeitet werden soll, werden nicht beide "Bx out" Pins miteinander verbunden, sondern einer von diesen mit der externen LED. Alle Pins mit dem Senkrecht-Zeichen (umgedrehtes T) oder GND beschriftet sind können als Ground-Pin verwendet werden. Wenn ein Pin als Input genutzt werden soll, wird ein Jumper bei *Bx in* gesetzt und die Input-Quelle mit einem der BUF-Pins.
+Wenn mit externen Geräten oder LEDs gearbeitet werden soll, werden nicht beide "Bx out" Pins miteinander verbunden, sondern einer von diesen mit der externen LED. Alle Pins mit dem Senkrecht-Zeichen (umgedrehtes T) oder GND beschriftet sind können als Ground-Pin verwendet werden. Wenn ein Pin als Input genutzt werden soll, wird ein Jumper bei *Bx in* gesetzt und die Input-Quelle mit einem der BUF-Pins.
 
 <h4> Progamieren mit dem Gertboard</h4>
 
