@@ -1,6 +1,10 @@
+<h2 id="Einleitung">Einleitung</h2>
+
+Der Raspberry Pi ist ein Mini-Computer, der vieles von dem, was ein normaler Computer auch kann: Er hat eine graphische Oberfläche, einen Internetbrowser und andere Programme. <br />
+Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich. Das neueste Modell (<a href="https://www.rasppishop.de/Raspberry-Pi-3-Modell-B-mit-12-GHz-QuadCore-64Bit-CPU">Raspberry Pi 3 Model B</a>) hat auch WLAN und Bluetooth an Board.
+
 <h2>Inhalt</h2>
 <ul style="list-style-type:none">
-    <li><a href="#Einleitung">1. Einleitung</a></li>
     <li><a href="#Inbetriebnahme">2. Inbetriebnahme des Pi</a></li>
     <li><a href="#Linux">3. Linux</a></li>
     <ul style="list-style-type:none">
@@ -20,10 +24,7 @@
 
 
 
-<h2 id="Einleitung">1. Einleitung</h2>
 
-Der Raspberry Pi ist ein Mini-Computer, der vieles von dem, was ein normaler Computer auch kann: Er hat eine graphische Oberfläche1, einen Internetbrowser und andere Programme. <br />
-Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich. Das neueste Modell hat auch WLAN und Bluetooth an Board.
 
 
 <h2 id="Inbetriebnahme">2. Inbetriebnahme des Pi</h2>
