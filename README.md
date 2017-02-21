@@ -86,16 +86,16 @@ Linux, macOS
 <p>
 macOS basiert auf Linux und da Linux einen SSH-Klienten mitbringt, gelten diese Schritte auch für macOS.  <br />
 
-Man öffnet das Terminal und führt folgenen Befehlen aus:   
-ssh pi@ip  
+Man öffnet das Terminal und führt folgenen Befehlen aus:<br />
+<code>ssh pi@ip</code>  
 </p>
 <p>
-ip ist die Adresse unter der man den Pi erreicht. Man findet sie zuhause über den Router und in der Schule mittels iSurf. <br />
+<code>ip</code> ist die Adresse unter der man den Pi erreicht. Man findet sie zuhause über den Router und in der Schule mittels iSurf. <br />
 Man ist nun auf dem Raspberry Pi eingewehlt und kann Befehle und Programme direkt auf dem Pi ausführen. <br />
-Falls man die Verbindung beenden möchte, sendet man entweder den Befehl exit oder schließt das Terminal.
+Falls man die Verbindung beenden möchte, sendet man entweder den Befehl <code>exit</code> oder schließt das Terminal.
 </p>
 
-<h3 id="Python">3. Erste Programme mit Phyton über Linux</h3>
+<h3 id="Python">Erste Programme mit Phyton über Linux</h3>
 <p>
 Es ist nun möglich Programme direkt auf dem Pi zu schreiben in dem man die Programmiersprache Python benutzt. <br />
 Man kann aber auch auf dem Mac, auf dem man auch das Terminal ausführt, Programme schreiben.<br />
@@ -106,12 +106,12 @@ Man kann aber auch auf dem Mac, auf dem man auch das Terminal ausführt, Program
 Anlegen eines Dokuments auf dem Pi
 </h4>
 
-Man öffnet das Terminal und führt abermals den Befehl ssh pi@ip aus. Nun loggt man sich mit dem Passwort ein und gibt den Befehl nano Test.py ein. Jetzt öffnet sich der Python-Editor, mit dem man die Programme schreiben kann. Jetzt kann man hier den Code eigegben.
+Man öffnet das Terminal und führt abermals den Befehl <code>ssh pi@ip</code> aus. Nun loggt man sich mit dem Passwort ein und gibt den Befehl <code>nano Test.py</code> ein. Jetzt öffnet sich der Python-Editor, mit dem man die Programme schreiben kann. Jetzt kann man hier den Code eigegben.
 
 <h4>Das erste Programm</h4>
 Möchte man eine LED zum leuchten bringen, schließt man eine LED über ein Jumper-Kabel und einen Widerstand am Pi an. Die Pins die benutzt werden, sind der Ground-Pin und Pin 18. <br />
 
-Als erstes müssen verschiedene Dinge importiert werden: Die Zeit (<code>time</code>), die Steuerung für die Pins (<code>RPi.GPIO</code>)<!-- und das Einlesen der Tastatur (curses) -->. Das geschieht mit dem Befehl <code>import Befehl</code>.
+Als erstes müssen verschiedene Dinge importiert werden: Die Zeit <code>time</code>, die Steuerung für die Pins <code>RPi.GPIO</code><!-- und das Einlesen der Tastatur (curses) -->. Das geschieht mit dem Befehl <code>import</code> Befehl.
 
 <h5>Programme schreiben</h5> 
 Der Anfang des Programmes sieht dann so aus:  
