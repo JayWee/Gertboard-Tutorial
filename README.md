@@ -8,7 +8,7 @@ Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich
     <li><a href="#Inbetriebnahme">1. Inbetriebnahme des Pi</a></li>
     <li><a href="#Linux">2. Linux</a>
     <ul style="list-style-type:none">
-        <li><a href="#Python">2.1 erste Programme mit Python</a></li>
+        <li><a href="#Python">2.1 Erste Programme mit Python</a></li>
     </ul></li>
     <li><a href="#Windows">3. Windows 10 IoT Core</a>
     <ul style="list-style-type:none">
@@ -23,9 +23,10 @@ Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich
 </ul>
 
 <h2 id="Inbetriebnahme">1. Inbetriebnahme des Pi</h2>
+<p>
 Der Pi besitzt keine eigene interne Festplatte oder sonstigen internen Speicher. Deshalb muss man ihm einen stellen. Dies geschieht in Form einer SD-Karte (ab dem Raspberry Pi 2 eine microSD-Karte) mit mindestens 8 GB Speicher (am besten Class 10, bei Windows IoT werden SD-Karten erst ab Class 4 unterstützt).  <br />
-Es gibt zwei Betriebssysteme, die Hauptsächlich mit dem Pi benutzt werden. Vor allem ist dies Linux (Raspbian), welches eine vollständige Desktopoberfläche hat. Die Alternative ist Windows 10 IoT Core, welches allerding erst ab der 2. Version des Pi für diesen verfügbar ist). Dieses Betriebssystem bietet keine graphische Oberfläche, allerdings kann auf alle Funktion über ein anderen Rechner mit Windows zugegriffen werden. Ebenfalls ist es dann möglich mit <href Visual Studio 2015 Community](https://www.visualstudio.com/de/), einem Compiler für diverse Sprachen(C/C#/C++/JavaScript/Visual Basic/Phython) von Microsoft, Remote-Debugging zu betreiben.
-
+Es gibt zwei Betriebssysteme, die Hauptsächlich mit dem Pi benutzt werden. Vor allem ist dies Linux (Raspbian), welches eine vollständige Desktopoberfläche hat. Die Alternative ist Windows 10 IoT Core, welches allerding erst ab der 2. Version des Pi für diesen verfügbar ist). Dieses Betriebssystem bietet keine graphische Oberfläche, allerdings kann auf alle Funktion über ein anderen Rechner mit Windows zugegriffen werden. Ebenfalls ist es dann möglich mit <a href="https://www.visualstudio.com/de/">Visual Studio 2015 Community</a>, einem Compiler für diverse Sprachen(C/C#/C++/JavaScript/Visual Basic/Phython) von Microsoft, Remote-Debugging zu betreiben.
+</p>
 
 <h2 id="Linux">2. Linux</h2>
 
@@ -87,7 +88,7 @@ Man ist nun auf dem Raspberry Pi eingewehlt und kann Befehle und Programme direk
 Falls man die Verbindung beenden möchte, sendet man entweder den Befehl <code>exit</code> oder schließt das Terminal.
 </p>
 
-<h3 id="Python">Erste Programme mit Phyton über Linux</h3>
+<h3 id="Python">2.1 Erste Programme mit Phyton über Linux</h3>
 <p>
 Es ist nun möglich Programme direkt auf dem Pi zu schreiben in dem man die Programmiersprache Python benutzt. <br />
 Man kann aber auch auf dem Mac, auf dem man auch das Terminal ausführt, Programme schreiben.<br />
@@ -158,7 +159,7 @@ darunter dann den Inhalt der Schleife setzen. Diese ist jetzt unendlich. Wenn ma
 <code>(2,GPIO.IN)</code> definiert Pin 2 als Eingang. Das gegegebn kann man mit der Funktion <code>if GPIO.input(2) == GPIO.HIGH</code> und einem Schlater eine Ampel bauen. Mit <code>print "text"</code> können die einzelnen Schritte in der Konsole beschrieben werden, um ein debugging möglich machen kann. Hier ein Beispiel für eine <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/Ampel.py">Ampelschaltung</a>.
 
 
-<h2>
+<h2 id="Windows">
 3. Windows 10 IoT Core
 </h2>
 <p>
@@ -190,7 +191,7 @@ In diesem Fenster werden alle bisher per Remote Debugging ausgeführten und acuh
 <h5>Processes/Performance</h5>
 Diese beiden Unterpunkte sind sozusagen der Task-Manager für den Pi.
 <h5>Devices</h5>
-Hier kann man alle Treiber einsehen. Ebenso kann man den GPIO-Controller-Treiber ändern. Für die Nutzung von PWM (=pulse-width modulation) ist dieser unterpunkt später wichtig.
+Hier kann man alle Treiber einsehen. Ebenso kann man den GPIO-Controller-Treiber ändern. Für die Nutzung von PWM (= <em>pulse-width modulation</em>) ist dieser unterpunkt später wichtig.
 <h5>Bluetooth/Audio</h5>
 Hier können die Einstellung für die in der Überschrift genannten Funktionen geändert werden.
 <h5>Networking</h5>
@@ -202,6 +203,21 @@ Hier kann man nach neuen Updates suchen lassen.
 Über das gleiche Menü, über das das Device Portal geöffnet wird, kann man auch die Netzwerkfreigabe öffnen. Über diese ist es möglich auf das Datei-System des Pi direkt zuzugreifen. 
 <h4>Weitere Funktionen des IoT Dashboards</h4>
 Weiterhin kann man über das selbe Menü auch die Remote Komandozeile öffnen, die IP-Adressen des Pi kopieren und diesen Herunterfahren und Neustarten.
+
+
+<h3 id="C#">3.1 Erste Programme über Windows IoT Core</h3>
+Mit Windows IoT Cre kann man in diversen Sprachen seine Programme schreiben. auch hier kann man Python benutzen. Am meisten benutz wird allerdings C#. Im untertschied zu Python, welche eine Script-Sprache ist, müssen C# Programme erst Kompiliert werden, bevor sie ausgeführt werden können. In diesem Tutorial beschäftigen wir uns mit C#.<br />
+Da dieses Tutorial sich mit einer Weiterführung von C# beschäftigt, sollte man vorher ein gennerelles Verständnis für Programiersprachen haben. Für den Einstieg in C# ist hier ein <a href="http://kushellig.de/c/">Liste von Tutorials</a> zum lernen von C#.
+
+<h4>Programieren auf Windows IoT</h4>          
+Für das Schreiben von Programmen auf Windows IoT empfielt sich <a href="https://www.visualstudio.com/de/">Visual Studio</a>, da man über dieses Programm direkt auf dem Pi Remote Debuggen kann, das heißt, das man das Progamm ohne es zu exportieren und manuell auf den Pi zu schieben auf dem Pi direkt Testen kann. Das Tutorial wird auch mit diesem Programm erklärt. Codeausschnitte sind aber für UWPs(Universial Windows Programm) allgemeingültig<br />
+<h5>Erstellen eines Projektes</h5>
+Wenn man dann Visual Studio öffnet, klickt man auf der Startseite unter dem Punkt <em>Start</em> auf <em>Neues Projekt</em>. Dann unter <em>Templates/Visual C#/Windows/Universal</em> auf <em>Blank App (Universal Windows)</em> und benennet sein Projekt in der Zeile Name. <br />
+In dem Fenster, dass man dann öffnet, kann man die Windowsversionen, für die das Programm geschrieben werdens soll auswählen. Die voreingestellten Versionen kann man so lassen. So funktioniert das Programm auf den meisten geräten mit Windows 10. Das besondere an Windows Universial Programmen ist, dass diese auf wirklich jedem Windows 10 Gerät funktionieren, also auf dem eigenen Standrechner, dem Laptop, dem Windows-phone und natürlich auch auf dem Raspberry Pi mit Windows IoT Core.
+<h5>Erste Programme</h5>
+Als erstes öffnet sich nach dem Erstellen eines neuen Projektes in Visual Studio die Datei <em>App.xaml.cs</em>. Diese ist erstmal irrelevant. Durch Doppelklicken wird die Datei <em>MainPage.xaml.cs</em> unter dem Reiter <em>MainPage.xaml</em> geöffnet.
+
+
 
 
 
