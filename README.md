@@ -1,39 +1,34 @@
 <h2 id="Einleitung">Einleitung</h2>
 
 Der Raspberry Pi ist ein Mini-Computer, der vieles von dem, was ein normaler Computer auch kann: Er hat eine graphische Oberfläche, einen Internetbrowser und andere Programme. <br />
-Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich. Das neueste Modell (<a href="https://www.rasppishop.de/Raspberry-Pi-3-Modell-B-mit-12-GHz-QuadCore-64Bit-CPU">Raspberry Pi 3 Model B</a>) hat auch WLAN und Bluetooth an Board.
+Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich. Das neueste Modell (<a href="https://www.rasppishop.de/Raspberry-Pi-3-Modell-B-mit-12-GHz-QuadCore-64Bit-CPU">Raspberry Pi 3 Modell B</a>) hat auch WLAN und Bluetooth an Board.
 
 <h2>Inhalt</h2>
-<ul style="list-style-type:none">
-    <li><a href="#Inbetriebnahme">2. Inbetriebnahme des Pi</a></li>
-    <li><a href="#Linux">3. Linux</a></li>
-    <ul style="list-style-type:none">
-        <li><a href="#Python">3.1 erste Programme mit Python</a></li>
-    </ul>
-    <li><a href="#Windows">4. Windows 10 IoT Core</a></li>
-    <ul style="list-style-type:none">
-        <li><a href="#C#">4.1. Erste Programme mit C# über Windows</a></li>
-    </ul>
-    <li><a href="#Gertboard">5. Gertboard</a></li>
-    <ul style="list-style-type:none">
-        <li><a href="#Einführung">5.1 Einführung </a></li>
-        <li><a href="#Buffer">5.2 Nutzung der Buffer </a></li>
-        <li><a href="#Program">5.3 Programme mit dem Gertboard</a></li>
-    </ul>
-</ul>
+<ol style="list-style-type:none">
+    <li><a href="#Inbetriebnahme">1. Inbetriebnahme des Pi</a></li>
+    <li><a href="#Linux">2. Linux</a>
+    <ol style="list-style-type:none">
+        <li><a href="#Python">2.1 erste Programme mit Python</a>
+    </ol></li>
+    <li><a href="#Windows">3. Windows 10 IoT Core</a>
+    <ol style="list-style-type:none">
+        <li><a href="#C#">3.1. Erste Programme mit C# über Windows</a></li>
+    </ol></li>
+    <li><a href="#Gertboard">4. Gertboard</a>
+    <ol style="list-style-type:none">
+        <li><a href="#Einführung">4.1 Einführung </a></li>
+        <li><a href="#Buffer">4.2 Nutzung der Buffer </a></li>
+        <li><a href="#Program">4.3 Programme mit dem Gertboard</a></li>
+    </ol></li>
+</ol>
 
-
-
-
-
-
-<h2 id="Inbetriebnahme">2. Inbetriebnahme des Pi</h2>
+<h2 id="Inbetriebnahme">1. Inbetriebnahme des Pi</h2>
 <p>
 Der Pi besitzt keine eigene interne Festplatte oder sonstigen internen Speicher. Deshalb muss man ihm einen stellen. Dies geschieht in Form einer SD-Karte (ab dem Raspberry Pi 2 eine microSD-Karte) mit mindestens 8 GB Speicher (am besten Class 10, bei Windows IoT werden SD-Karten erst ab Class 4 unterstützt).  <br />
 Es gibt zwei Betriebssysteme, die Hauptsächlich mit dem Pi benutzt werden. Vor allem ist dies Linux (Raspbian), welches eine vollständige Desktopoberfläche hat. Die Alternative ist Windows 10 IoT Core, welches allerding erst ab der 2. Version des Pi für diesen verfügbar ist). Dieses Betriebssystem bietet keine graphische Oberfläche, allerdings kann auf alle Funktion über ein anderen Rechner mit Windows zugegriffen werden. Ebenfalls ist es dann möglich mit <href Visual Studio 2015 Community](https://www.visualstudio.com/de/), einem Compiler für diverse Sprachen(C/C#/C++/JavaScript/Visual Basic/Phython) von Microsoft, Remote-Debugging zu betreiben.
 </p>
 
-<h2 id="Linux">3. Linux</h2>
+<h2 id="Linux">2. Linux</h2>
 
 <p>
 Als erstes muss eine Installationsdatei für Linux heruntergeladen werden, welches <a href="https://downloads.raspberrypi.org/raspbian_latest">hier</a> verfügbar ist. Das letztendliche Linux nennt sich Raspbian und ist kostenlos. <br />
@@ -65,7 +60,7 @@ Ist der Befehl ausgeführt, kann die SD-Karte ausgeworfen und in den Pi gesteckt
 <h3 id="7">Der erste Start</h3>
 <p>
 Jetzt steckt man die SD-Karte, auf der das Raspbian installiert ist, in den Pi, der über ein Micro-USB-Kabel mit Strom versorgt wird.  <br />
-Nun beginnt der Pi den Startvorgang. In der Zeit sollte man ein LAN-Kabel zur Versorgung mit Internet anschließen. (die Pis der Schule müssen nur angeschlossen werden, sie haben schon Internet. Eigene Pi's müssen erst registriert werden.)
+Nun beginnt der Pi den Startvorgang. In der Zeit sollte man ein LAN-Kabel zur Versorgung mit Internet anschließen. (die Pi der Schule müssen nur angeschlossen werden, sie haben schon Internet. Eigene Pi's müssen erst registriert werden.)
 </p>
 
 <h3>
@@ -117,7 +112,7 @@ Der Anfang des Programmes sieht dann so aus:
 import time  
 </code></pre>
   
-Nun definiert man die Pins als Ausgang-Pins und den GPIO Modus. Durch den Modus <code>BCM</code> wird die interne Nummerierung des Pis für die Pins verwendet. Mit dem Modus <code>BOARD</code> werden die Pins von links nach rechts, Reihe für Reihe durchgezählt (Der Pi liegt so, dass die Pins rechts oben sind):
+Nun definiert man die Pins als Ausgang-Pins und den GPIO Modus. Durch den Modus <code>BCM</code> wird die interne Nummerierung des Pi für die Pins verwendet. Mit dem Modus <code>BOARD</code> werden die Pins von links nach rechts, Reihe für Reihe durchgezählt (Der Pi liegt so, dass die Pins rechts oben sind):
 
 <pre><code>GPIO.setmode(GPIO.BCM)  
 GPIO.setwarnings(False)  
@@ -165,7 +160,7 @@ darunter dann den Inhalt der Schleife setzen. Diese ist jetzt unendlich. Wenn ma
 
 
 <h2>
-4. Windows 10 IoT Core
+3. Windows 10 IoT Core
 </h2>
 <p>
 Windwos 10 Iot Core ist ein kostenloses Betriebssystem für Kleingeräte von Microsoft ohne graphische richtige Oberfläche (es gibt keinen Desktop für klassische Programme, man kann allerdings Netzwerkeinstellungen auch ohne Konsole machen). Im Gegensatz zum normalen Windows ist IoT Core allerdings darauf spezialisiert LEDs, Sensoren und Motoren anzusteuern. Ebenfalls anders ist, das man per Remote Connection einiges mehr machen kann, als über die eigene Oberfläche. Deshalb kann Windows IoT Core auch mit Geräten genutzt werden, die keinen Bildschirmausgang haben.
@@ -176,21 +171,42 @@ Installation auf der SD-Karte
 </h3>
 <p>
 Da IoT Core nur  mit Raspberrys ab der zweiten Generation funktioniert, brauch man auf jeden Fall eine microSD-Karte. Diese muss mindestens 8 GB Speicher haben. Die Daten die noch auf dieser sind werden beim Installieren von IoT Core gelöscht. <br />
-Zum Installieren auf der SD-Karte wird das Programm *[Windows 10 IoT Dashboard](https://developer.microsoft.com/en-us/windows/iot/GetStarted)* benötigt. Die verlinkte Seite enthält ebenfalls eine Anleitung zum Installieren von IoT Core.  <br />
-Nach dem installieren dieses Programms muss es geöffnet werden. Unter Gerätetyp dann den Raspberry auswählen. Bei Betriebssystembuild "Windows 10 IoT Core" ausgewählt lassen und bei Laufwerk die SD-Karte auswählen. (Meistens hat das Programm von vornherein schon das Richtige ausgewählt.) Bei Gerätename kann ein beliebiger Name eingesetzt werden. Mit dem gesetzten Administratorpasswort kann man sich dann per Benutzname "administrator" und dem gewählten passwort einloggen. Zum installieren muss dan noch die Lizenzbedingung akzeptiert werden und dann unten rechts auf den Button gedrückt werden.  
+Zum Installieren auf der SD-Karte wird das Programm <em><a href="https://developer.microsoft.com/en-us/windows/iot/GetStarted">Windows 10 IoT Dashboard</a></em> benötigt. Die verlinkte Seite enthält ebenfalls eine Anleitung zum Installieren von IoT Core.  <br />
+Nach dem installieren dieses Programms muss es geöffnet werden. Unter Gerätetyp dann den Raspberry auswählen. Bei Betriebssystembuild "Windows 10 IoT Core" ausgewählt lassen und bei Laufwerk die SD-Karte auswählen. (Meistens hat das Programm von vornherein schon das Richtige ausgewählt.) Bei Gerätename kann ein beliebiger Name eingesetzt werden. Mit dem gesetzten Administratorpasswort kann man sich dann per Benutzname "administrator" und dem gewählten Passwort einloggen. Zum Installieren muss dan noch die Lizenzbedingung akzeptiert werden und dann unten rechts auf den Button gedrückt werden.  
 </p>
 <h3>
 Übername von WLAN-Profilen
 </h3>
 <p>
-Wenn auf dem Instalierendem Rechner WLAN-Profile bestehen und entweder ein Model ab Stufe 3 des Raspberrys verwendet wird, oder eein WLAN-Adapter per USB verbunden wurde, können diese dann direkt, oben rechts bei der Installation, mit ünernommen werden. So meldet sich der Pi beim ersten mal Booten direkt per WLAN an und es kann dann auch direkt über siese Verbindung auf ihn zugegriffen werden.  
+Wenn auf dem instalierendem Rechner WLAN-Profile bestehen und entweder ein Modell ab Stufe 3 des Raspberrys verwendet wird, oder eein WLAN-Adapter per USB verbunden wurde, können diese dann direkt, oben rechts bei der Installation, mit ünernommen werden. So meldet sich der Pi beim ersten mal Booten direkt per WLAN an und es kann dann auch direkt über diese Verbindung auf ihn zugegriffen werden.  
 </p>
 
 <h3>Zugreifen auf den Pi </h3>
-Dafür braucht man wieder das Programm <em>Windows 10 IoT Dashboard</em>. In diesem geht man auf den Reiter "<em>Meine Geräte</em>". Dort wird der Raspberry dann mit dem gegebenem Namen, seinem Typ und der IP-Adresse angezeigt.
+Dafür braucht man wieder das Programm <em>Windows 10 IoT Dashboard</em>. In diesem geht man auf den Reiter "<em>Meine Geräte</em>". Dort wird der Raspberry dann mit dem gegebenem Namen, seinem Typ und der IP-Adresse angezeigt. Mit einem Rechtsklick auf den Raspberry wird ein Menü geöffnet. Der erste Unterpunkt heißt <em>Im Device Portal öffnen</em>. Wenn man darauf klickt, wird der Standartbrowser geöffnet und nach den Anmeldedaten für den Raspberry gefragt. Diese sind "administrator" und das eben gewählte Passwort. Die Oberfläche, die sich dann öffnet, ist das Hauptbedienelement des Pi.<br />
+<h4>Device Portal</h4>
+<h5>Home</h5>
+Auf dem Home-Screen kann man den Namen, das Passwort, die Zeitzone oder die Bildschirmeinstellungen ändern. Ebenso kann dort ein PIN für das Remote Debugging gesetzt werden.
+<h5>Apps</h5>
+In diesem Fenster werden alle bisher per Remote Debugging ausgeführten und acuh alle anderen installierten Apps dargestellt. ebenso können hier neue Apps installiert werden.
+<h5>Processes/Performance</h5>
+Diese beiden Unterpunkte sind sozusagen der Task-Manager für den Pi.
+<h5>Devices</h5>
+Hier kann man alle Treiber einsehen. Ebenso kann man den GPIO-Controller-Treiber ändern. Für die Nutzung von PWM (=pulse-width modulation) ist dieser unterpunkt später wichtig.
+<h5>Bluetooth/Audio</h5>
+Hier können die Einstellung für die in der Überschrift genannten Funktionen geändert werden.
+<h5>Networking</h5>
+Im ersten Unterpunkt kann der WiFi-Adapter ausgewählt werden und ein spezifisches WLAN-Profil zum Verbinden genutzt werden. Außerdem werden noch die verfügbaren Natzwerke angezeigt und die IP-Konfiguration. 
+<h5>Windows Update</h5>
+Hier kann man nach neuen Updates suchen lassen.
+
+<h4>Netzwerkfreigabe</h4>
+Über das gleiche Menü, über das das Device Portal geöffnet wird, kann man auch die Netzwerkfreigabe öffnen. Über diese ist es möglich auf das Datei-System des Pi direkt zuzugreifen. 
+<h4>Weitere Funktionen des IoT Dashboards</h4>
+Weiterhin kann man über das selbe Menü auch die Remote Komandozeile öffnen, die IP-Adressen des Pi kopieren und diesen Herunterfahren und Neustarten.
 
 
-<h2 id="Gertboard"> 5. Gertboard </h2>
+
+<h2 id="Gertboard"> 4. Gertboard </h2>
 <img src="https://github.com/JayWee/Gertboard-Tutorial/blob/master/gertboard_real.png?raw=true" alt="Gertboard Real" />
 <h3 id="Einführung"> Einführung </h3>
 Das Gertboard von element14 ist ein Erweiterungsboard für alle Versionen des Raspberry Pi. Das Gertboard ist für 26 GPIO-Pins gemacht, passt also perfekt auf die Pins des Raspberry Pi 1 und anderer Versionen des Modells A. Bei den B Modellen dagegen sind auf dem Pi 14 Pins mehr, als mit dem Gertboard verbunden werden können.  <br />
@@ -215,7 +231,7 @@ Die eben schon erwähnten Dauerstrom-Pins befinden sich in den kleine Böcken <e
 <h4 id="Buffer">Nutzung der Buffer</h4>
 
 <h4> Verbindung mit dem Pi </h4>
-Um das Gertboard mit dem Raspberry Pi zu verbinden, muss das Gertboard auf die linken (Der Pi ist so gedreht, dass die Pins oben links liegen) 26 GPIO-Pins gesteckt werden. Bei B Modelen des Pi sind somit die vierzehn rechten Pins nicht mit dem Gertboard verbunden und auf sie kann somit nicht auf dem Gertboard zugegriffen werden. Damit die Buffer-Ausgänge auch Signale senden können müssen bei <em>J7</em> (3,3V Dauerstrom) zwei der drei Pins miteinander Verbunden werden (am besten mit einem <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/Shunt-Jumpers2-1383815114.jpg">Jumper</a>).    <!---(Für die, die es interessiert: [Warum hier](#10)) -->  
+Um das Gertboard mit dem Raspberry Pi zu verbinden, muss das Gertboard auf die linken (Der Pi ist so gedreht, dass die Pins oben links liegen) 26 GPIO-Pins gesteckt werden. Bei B Modellen des Pi sind somit die vierzehn rechten Pins nicht mit dem Gertboard verbunden und auf sie kann somit nicht auf dem Gertboard zugegriffen werden. Damit die Buffer-Ausgänge auch Signale senden können müssen bei <em>J7</em> (3,3V Dauerstrom) zwei der drei Pins miteinander Verbunden werden (am besten mit einem <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/Shunt-Jumpers2-1383815114.jpg">Jumper</a>).    <!---(Für die, die es interessiert: [Warum hier](#10)) -->  
 
 <h4> Arbeiten mit den LEDs und den Druckknöpfen über die Buffer </h4>
 Um auf die LEDs zuzugreifen muss erstmal eine Verbindung zwischen den GPIO-Pins (<em>J2</em>) und den Buffer-Eingangs-Pins (<em>J3</em>) hergestellt werden. Jetzt sollten alle LEDs rot leuchten.  <br />
@@ -226,4 +242,4 @@ Um die Druckknöpfe zu verwenden, muss man über B1-3 darauf zugreifen und entge
 Wenn mit externen Geräten oder LEDs gearbeitet werden soll, werden nicht beide <em>Bx out</em> Pins miteinander verbunden, sondern einer von diesen mit der externen LED. Alle Pins mit dem Senkrecht-Zeichen (umgedrehtes T) oder GND beschriftet sind können als Ground-Pin verwendet werden. Wenn ein Pin als Input genutzt werden soll, wird ein Jumper bei <em>Bx in</em> gesetzt und die Input-Quelle mit einem der BUF-Pins.
 
 <h4> Progamieren mit dem Gertboard</h4>
-Mit dem Gerdboard kann genauso programiert werden, wie mit einer direkten Verbindung zum Pi. Zu beachten ist nur, dass die Beschriftung der Pins in <em>J2</em> die des Pis erster Generation ist, und somit für alle nachfolgenden Pis gilt: Der mit <em>21</em> beschriftete Pin auf dem Gertboard ist im System der Pin <em>27</em>. Die Nummerierung auf dem Gertboard entspricht der Nummerierung, die der Pi intern benutzt. <br />
+Mit dem Gerdboard kann genauso programiert werden, wie mit einer direkten Verbindung zum Pi. Zu beachten ist nur, dass die Beschriftung der Pins in <em>J2</em> die des Pi erster Generation ist, und somit für alle nachfolgenden Pi gilt: Der mit <em>21</em> beschriftete Pin auf dem Gertboard ist im System der Pin <em>27</em>. Die Nummerierung auf dem Gertboard entspricht der Nummerierung, die der Pi intern benutzt. <br />
