@@ -136,17 +136,13 @@ Als erstes müssen verschiedene Dinge importiert werden: Die Zeit (<code>time</c
 
 <h4>Programme schreiben</h4> 
 Der Anfang des Programmes sieht dann so aus:  
-<pre>
-<code>
-import RPi.GPIO as GPIO  
+<pre><code>import RPi.GPIO as GPIO  
 import time  
-</code>
-</pre>
+</code></pre>
   
 Nun definiert man die Pins als Ausgang-Pins und den GPIO Modus. Durch den Modus <code>BCM</code> wird die interne Nummerierung des Pis für die Pins verwendet. Mit dem Modus <code>BOARD</code> werden die Pins von links nach rechts, Reihe für Reihe durchgezählt (Der Pi liegt so, dass die Pins rechts oben sind):
 
-<pre><code>
-GPIO.setmode(GPIO.BCM)  
+<pre><code>GPIO.setmode(GPIO.BCM)  
 GPIO.setwarnings(False)  
 GPIO.setup(18,GPIO.OUT) #LED  
 </code></pre>
@@ -158,8 +154,7 @@ GPIO.setup(18,GPIO.OUT) #LED
 
 
 Um die LED zu aktivieren setzt man den output auf HIGH:
-<pre><code>
-GPIO.output(18,GPIO.HIGH)  
+<pre><code>GPIO.output(18,GPIO.HIGH)  
 time.sleep(5) #wartet fuenf Sekunden  
 GPIO.output(18,GPIO.LOW) #schaltet die LED wieder aus  
 GPIO.cleanup() #setzt die Steuerung zurueck  
@@ -168,8 +163,7 @@ GPIO.cleanup() #setzt die Steuerung zurueck
 Mit crtl-x verlässt man den Editor: Erst <kbd>crtl-x</kbd> dann <kbd>y</kbd> und dann <kbd>Enter</kbd> drücken. Nun gibt man den Befehl <code>sudo phyton Test.py</code> ein, um das Programm auszuführen.
 
 Jetzt kann man eine Abfolge von LED leuchten erstellt:	
-<pre><code>
-GPIO.setup(17,GPIO.OUT) #rot  
+<pre><code>GPIO.setup(17,GPIO.OUT) #rot  
 GPIO.setup(18,GPIO.OUT) #gelb   
 GPIO.setup(27,GPIO.OUT) #gruen   
 GPIO.setup(22,GPIO.OUT) #rotf  
@@ -178,16 +172,14 @@ GPIO.setup(23,GPIO.OUT) #gruenf
 
 Alle als output definiert und dann mittels <code>time.sleep</code> verschiedene Blitzlichter und Morse-Codes erstellt.  
 Beispiel:   
-<pre><code>
-GPIO.output(18,GPIO.HIGH)  
+<pre><code>GPIO.output(18,GPIO.HIGH)  
 time.sleep(0.5)  
 GPIO.output(18,GPIO.LOW)  
 time.sleep(0.5)  
 </code></pre>
 
 Um daraus eine Schleife zu machen setzt kann man einen Counter einsetzen. Am Anfang des Programmes <code>count = 0</code> setzen und dann <code>while (count < x):</code> das sieht dann so aus:  
-<pre><code>
-count = 0  
+<pre><code>count = 0  
 while (count < x):
 </code></pre>
 darunter dann den Inhalt der Schleife setzen. Diese ist jetzt unendlich. Wenn man ans Ende ein <code>counter += 1</code> setzt wird der Counter nach jeden Durchlauf um 1 erhöht und das Programm endet nach x Durchläufen. 
