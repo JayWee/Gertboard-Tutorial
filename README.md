@@ -35,7 +35,7 @@ Es gibt zwei Betriebssysteme, die Hauptsächlich mit dem Pi benutzt werden. Vor 
 <h2 id="Linux">3. Linux</h2>
 
 <p>
-Als erstes muss eine Installationsdatei für Linux heruntergeladen werden, welches [hier](https://downloads.raspberrypi.org/raspbian_latest) verfügbar ist. Das letztendliche Linux nennt sich Raspbian und ist kostenlos. <br />
+Als erstes muss eine Installationsdatei für Linux heruntergeladen werden, welches <a href="https://downloads.raspberrypi.org/raspbian_latest">hier</a> verfügbar ist. Das letztendliche Linux nennt sich Raspbian und ist kostenlos. <br />
 Diese liegt in Form einer einer Zip-Datei, die entpackt werden muss. Anstatt der zip-Datei hat man jetzt eine IMG-Datei. <br />
 Die Sd-Karte muss nun mit dem Computer verbunden werden, um die IMG-Datei drauf zu spielen. 
 </p>
@@ -45,7 +45,7 @@ Windows
 </h3>
 
 <p>
-Man installiert nun das Program [Win32DiskImager](http://sourceforge.net/projects/win32diskimager/). Die geladene Datei wird anschließend entpackt und ausgeführt. Mit Hilfe des Programmes installiert man Raspian auf dem Pi. 
+Man installiert nun das Program <a href="http://sourceforge.net/projects/win32diskimager">Win32DiskImager</a>. Die geladene Datei wird anschließend entpackt und ausgeführt. Mit Hilfe des Programmes installiert man Raspian auf dem Pi. 
 </p>
 
 
@@ -55,10 +55,10 @@ Mac
 <p>
 Falls man Raspian mit einem Mac installiert: Als erstes muss sichergestellt werden, dass die SD-Karte im Format MS-DOS (FAT) formatiert ist:  Dafür benutzt man das Festplattendienstprogramm. Dort klickt man auf die SD-Karte an der linken Seite: Wichtig ist, dass man auf die obere klickt, nicht die untere.    <br />
 Jetzt wählt man aus der oberen Leiste Löschen aus und dann einen Namen (Ohne Titel), das Format (MS-DOS-Dateisytem (FAT)), und das Schema (GUID). Nun klickt man auf Löschen. <br />
-Jetzt merkt man sich die Zahl die unten rechts im Feld Gerät steht: `diskx`.<br />
-Anschließend öffnet man das Terminal (Programme -> Terminal) und gibt den Befehl: `sudo dd bs=1m if=path_of_your_image.img of=/dev/rdiskx` ein.<br />
-Statt `path_of_your_image.img` gibt man den Pfad der IMG Datei ein. Diese kann man aus dem Finder kopieren. Dafür wählt man die IMG-Datei aus und rechts-klickt auf die Datei und wählt Informationen aus. Für x setzt man die Zahl aus dem Festpalttendienstprogramm ein und führt den Befehl aus. <br />
-Schlägt der Befehl fehl, kann man statt `rdisk` auch nur `disk` verwenden.<br />
+Jetzt merkt man sich die Zahl die unten rechts im Feld Gerät steht: <code>diskx</code>.<br />
+Anschließend öffnet man das Terminal (Programme -> Terminal) und gibt den Befehl: <code>sudo dd bs=1m if=path_of_your_image.img of=/dev/rdiskx</code> ein.<br />
+Statt <code>path_of_your_image.img</code> gibt man den Pfad der IMG Datei ein. Diese kann man aus dem Finder kopieren. Dafür wählt man die IMG-Datei aus und rechts-klickt auf die Datei und wählt Informationen aus. Für x setzt man die Zahl aus dem Festpalttendienstprogramm ein und führt den Befehl aus. <br />
+Schlägt der Befehl fehl, kann man statt <code>rdisk</code> auch nur <code>disk</code> verwenden.<br />
 Ist der Befehl ausgeführt, kann die SD-Karte ausgeworfen und in den Pi gesteckt werden. 
 </p>
 <h3 id="7">Der erste Start</h3>
@@ -86,10 +86,7 @@ Linux, macOS
 <p>
 macOS basiert auf Linux und da Linux einen SSH-Klienten mitbringt, gelten diese Schritte auch für macOS.  <br />
 
-Man öffnet das Terminal und führt folgenen Befehlen aus:<br />
-<code>ssh pi@ip</code>  
-</p>
-<p>
+Man öffnet das Terminal und führt folgenen Befehlen aus:<code>ssh pi@ip</code> <br /> 
 <code>ip</code> ist die Adresse unter der man den Pi erreicht. Man findet sie zuhause über den Router und in der Schule mittels iSurf. <br />
 Man ist nun auf dem Raspberry Pi eingewehlt und kann Befehle und Programme direkt auf dem Pi ausführen. <br />
 Falls man die Verbindung beenden möchte, sendet man entweder den Befehl <code>exit</code> oder schließt das Terminal.
