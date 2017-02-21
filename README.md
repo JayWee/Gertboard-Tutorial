@@ -8,7 +8,7 @@ Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich
     <li><a href="#Inbetriebnahme">1. Inbetriebnahme des Pi</a></li>
     <li><a href="#Linux">2. Linux</a>
     <ul style="list-style-type:none">
-        <li><a href="#Python">2.1 erste Programme mit Python</a>
+        <li><a href="#Python">2.1 erste Programme mit Python</a></li>
     </ul></li>
     <li><a href="#Windows">3. Windows 10 IoT Core</a>
     <ul style="list-style-type:none">
