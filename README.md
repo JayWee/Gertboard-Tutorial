@@ -153,7 +153,7 @@ GPIO.setup(18,GPIO.OUT) #LED
 
 <figure>
     <img alt="Pin Nummerierung" src="https://github.com/JayWee/SCC/blob/master/Raspberry%20Pi/GPIO/Raspberry-Pi-GPIO-pinouts.png?raw=true" />
-    <figcaption>Eine Übersicht über alle momentan Verfügbaren Varianten des Pin-Layouts auf dem Raspberry Pi</figcaption>
+    <figcaption><em>Eine Übersicht über alle momentan Verfügbaren Varianten des Pin-Layouts auf dem Raspberry Pi</em></figcaption>
 </figure>
 
 
@@ -235,7 +235,7 @@ darunter dann den Inhalt der Schleife setzen. Diese ist jetzt unendlich. Wenn ma
 <code>(2,GPIO.IN)</code> definiert Pin 2 als Eingang. Das gegegebn kann man mit der Funktion <code>if GPIO.input(2) == GPIO.HIGH</code> und einem Schlater eine Ampel bauen. Mit <code>print "text"</code> können die einzelnen Schritte in der Konsole beschrieben werden, um ein debugging möglich machen kann. Hier ein Beispiel für eine <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/Ampel.py">Ampelschaltung</a>.
 
 <h2 id="Gertboard"> 4. Gertboard </h2>
-![Gertboard Real](https://github.com/JayWee/Gertboard-Tutorial/blob/master/gertboard_real.png)
+<img src="https://github.com/JayWee/Gertboard-Tutorial/blob/master/gertboard_real.png?raw=true" alt="Gertboard Real" />
 <h3 id="Einführung"> Einführung </h3>
 Das Gertboard von element14 ist ein Erweiterungsboard für alle Versionen des Raspberry Pi. Das Gertboard ist für 26 GPIO-Pins gemacht, passt also perfekt auf die Pins des Raspberry Pi 1 und anderer Versionen des Modells A. Bei den B Modellen dagegen sind auf dem Pi 14 Pins mehr, als mit dem Gertboard verbunden werden können.  <br />
 Das Gertboard ist mit s. g. Buffern ausgestattet. Diese schützen den Pi bei der benutzung der GPIO-Pins vor Kurzschlüssen. Weiterhin sind auf dem Gertboard noch anschlüsse für eine externe Energiequelle, um Motoren, die eine höhere Spannung brauchen als der Pi liefern kann (3,3V bzw. 5V), mit dem Pi zu betreiben.  
