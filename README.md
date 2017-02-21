@@ -1,4 +1,5 @@
-<ul>
+<h2>Inhalt</h2>
+<ul style="list-style-type:none">
     <li><a href="#Einleitung">1. Einleitung</a></li>
     <li><a href="#Inbetriebnahme">2. Inbetriebnahme des Pi</a></li>
     <li><a href="#Linux">3. Linux</a></li>
@@ -10,7 +11,7 @@
         <li><a href="#C#">4.1. Erste Programme mit C# über Windows</a></li>
     </ul>
     <li><a href="#Gertboard">5. Gertboard</a></li>
-    <ul>
+    <ul style="list-style-type:none">
         <li><a href="#Einführung">5.1 Einführung </a></li>
         <li><a href="#Buffer">5.2 Nutzung der Buffer </a></li>
         <li><a href="#Program">5.3 Programme mit dem Gertboard</a></li>
@@ -166,7 +167,7 @@ darunter dann den Inhalt der Schleife setzen. Diese ist jetzt unendlich. Wenn ma
 
 
 <h2>
-Aufsetzten von Windows 10 IoT Core
+4. Windows 10 IoT Core
 </h2>
 <p>
 Windwos 10 Iot Core ist ein kostenloses Betriebssystem für Kleingeräte von Microsoft ohne graphische richtige Oberfläche (es gibt keinen Desktop für klassische Programme, man kann allerdings Netzwerkeinstellungen auch ohne Konsole machen). Im Gegensatz zum normalen Windows ist IoT Core allerdings darauf spezialisiert LEDs, Sensoren und Motoren anzusteuern. Ebenfalls anders ist, das man per Remote Connection einiges mehr machen kann, als über die eigene Oberfläche. Deshalb kann Windows IoT Core auch mit Geräten genutzt werden, die keinen Bildschirmausgang haben.
@@ -191,7 +192,7 @@ Wenn auf dem Instalierendem Rechner WLAN-Profile bestehen und entweder ein Model
 Dafür braucht man wieder das Programm <em>Windows 10 IoT Dashboard</em>. In diesem geht man auf den Reiter "<em>Meine Geräte</em>". Dort wird der Raspberry dann mit dem gegebenem Namen, seinem Typ und der IP-Adresse angezeigt.
 
 
-<h2 id="Gertboard"> 4. Gertboard </h2>
+<h2 id="Gertboard"> 5. Gertboard </h2>
 <img src="https://github.com/JayWee/Gertboard-Tutorial/blob/master/gertboard_real.png?raw=true" alt="Gertboard Real" />
 <h3 id="Einführung"> Einführung </h3>
 Das Gertboard von element14 ist ein Erweiterungsboard für alle Versionen des Raspberry Pi. Das Gertboard ist für 26 GPIO-Pins gemacht, passt also perfekt auf die Pins des Raspberry Pi 1 und anderer Versionen des Modells A. Bei den B Modellen dagegen sind auf dem Pi 14 Pins mehr, als mit dem Gertboard verbunden werden können.  <br />
