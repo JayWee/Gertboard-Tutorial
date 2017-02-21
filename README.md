@@ -1,4 +1,4 @@
-<ul>
+<ul style="list-style-type:none">
     <li><a href="#Einleitung">1. Einleitung</a></li>
     <li><a href="#Inbetriebnahme">2. Inbetriebnahme des Pi</a></li>
     <li><a href="#Linux">3. Aufsetzen von Linux</a></li>
