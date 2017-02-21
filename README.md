@@ -6,7 +6,7 @@
     <li><a href="#Python">5. Erste Programme mit Phyton über Linux</a></li>
     <li><a href="#C#">6. Erste Programme mit C# über Windows</a></li>
     <li><a href="#Gertboard">7. Gertboard</a></li>
-    <ul>
+    <ul style="list-style-type:none">
         <li><a href="#Einführung">7.1 Einführung </a></li>
         <li><a href="#Buffer">7.2 Nutzung der Buffer </a></li>
         <li><a href="#Program">7.3 Programme mit dem Gertboard</a></li>
