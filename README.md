@@ -24,7 +24,7 @@ Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich
 <h3 id="Inbetriebnahme">2. Inbetriebnahme des Pi</h3>
 <p>
 Der Pi besitzt keine eigene interne Festplatte oder sonstigen internen Speicher. Deshalb muss man ihm einen stellen. Dies geschieht in Form einer SD-Karte (ab dem Raspberry Pi 2 eine microSD-Karte) mit mindestens 8 GB Speicher (am besten Class 10, bei Windows IoT werden SD-Karten erst ab Class 4 unterstützt).  <br />
-Es gibt zwei Betriebssysteme, die Hauptsächlich mit dem Pi benutzt werden. Vor allem ist dies Linux (Raspbian), welches eine vollständige Desktopoberfläche hat. Die Alternative ist Windows 10 IoT Core, welches allerding erst mit ab der 2 Version des Pi für diesen verfügbar ist). Dieses Betriebssystem bietet keine graphische Oberfläche, allerdings kann auf alle Funktion über ein anderen Rechner mit Windows zugegriffen werden. Ebenfalls ist es dann möglich mit [Visual Studio 2015 Community](https://www.visualstudio.com/de/), einem Compiler für diverse Sprachen(C/C#/C++/JavaScript/Visual Basic/Phython) von Microsoft, Remote-Debugging zu betreiben.
+Es gibt zwei Betriebssysteme, die Hauptsächlich mit dem Pi benutzt werden. Vor allem ist dies Linux (Raspbian), welches eine vollständige Desktopoberfläche hat. Die Alternative ist Windows 10 IoT Core, welches allerding erst ab der 2. Version des Pi für diesen verfügbar ist). Dieses Betriebssystem bietet keine graphische Oberfläche, allerdings kann auf alle Funktion über ein anderen Rechner mit Windows zugegriffen werden. Ebenfalls ist es dann möglich mit <href Visual Studio 2015 Community](https://www.visualstudio.com/de/), einem Compiler für diverse Sprachen(C/C#/C++/JavaScript/Visual Basic/Phython) von Microsoft, Remote-Debugging zu betreiben.
 </p>
 
 <h4 id="Linux">Aufsetzten von Linux</h4>
@@ -143,13 +143,19 @@ import time
 </code>
 </pre>
   
-Nun definiert man die Pins als Ausgang-Pins und den GPIO Modus:
+Nun definiert man die Pins als Ausgang-Pins und den GPIO Modus. Durch den Modus <code>BCM</code> wird die interne Nummerierung des Pis für die Pins verwendet. Mit dem Modus <code>BOARD</code> werden die Pins von links nach rechts, Reihe für Reihe durchgezählt (Der Pi liegt so, dass die Pins rechts oben sind):
 
 <pre><code>
 GPIO.setmode(GPIO.BCM)  
 GPIO.setwarnings(False)  
 GPIO.setup(18,GPIO.OUT) #LED  
 </code></pre>
+
+<figure>
+    <img alt="Pin Nummerierung" src="https://github.com/JayWee/SCC/blob/master/Raspberry%20Pi/GPIO/Raspberry-Pi-GPIO-pinouts.png?raw=true" />
+    <figcaption>Eine Übersicht über alle momentan Verfügbaren Varianten des Pin-Layouts auf dem Raspberry Pi</figcaption>
+</figure>
+
 
 Um die LED zu aktivieren setzt man den output auf HIGH:
 <pre><code>
@@ -226,61 +232,12 @@ while (count < x):
 </code></pre>
 darunter dann den Inhalt der Schleife setzen. Diese ist jetzt unendlich. Wenn man ans Ende ein <code>counter += 1</code> setzt wird der Counter nach jeden Durchlauf um 1 erhöht und das Programm endet nach x Durchläufen. 
 
-<code>(2,GPIO.IN)</code> definiert Pin 2 als Eingang. Das gegegebn kann man mit der Funktion <code>if GPIO.input(2) == GPIO.HIGH</code> und einem Schlater eine Ampel bauen. Mit <code>print "text"</code> können die einzelnen Schritte in der Konsole beschrieben werden, um ein debugging möglich machen kann.
-<pre><code>
-
-import RPi.GPIO as GPIO
-import time
-
-GPIO.setmode(GPIO.BCM)  
-GPIO.setwarnings(False)  
-  
-GPIO.setup(17,GPIO.OUT) #rot  
-GPIO.setup(18,GPIO.OUT) #gelb  
-GPIO.setup(27,GPIO.OUT) #gruen  
-GPIO.setup(22,GPIO.OUT) #rotf  
-GPIO.setup(23,GPIO.OUT) #gruenf  
-  
-  
-rotan = GPIO.output(17,GPIO.HIGH)  
-rotaus = GPIO.output(17,GPIO.LOW)  
-gelban = GPIO.output(18,GPIO.HIGH)  
-gelbaus = GPIO.output(18,GPIO.LOW)  
-greenan = GPIO.output(27,GPIO.HIGH)  
-greenaus = GPIO.output(27,GPIO.LOW)  
-rotfan = GPIO.output (22,GPIO.HIGH)  
-rotfaus = GPIO.output (22,GPIO.LOW)  
-greenfan = GPIO.output(23,GPIO.HIGH)  
-greenfaus = GPIO.output(23,GPIO.LOW)  
-  
-count = 0  
-while (count < 3):  
-    GPIO.output (22,GPIO.HIGH)  
-    GPIO.output(27,GPIO.HIGH)    
-    if GPIO.input(2) == GPIO.HIGH:  
-        print "Signal kommt"  
-        GPIO.output(27,GPIO.LOW)  
-        GPIO.output(18,GPIO.HIGH)  
-        time.sleep(2)  
-        GPIO.output(18,GPIO.LOW)  
-        GPIO.output(17,GPIO.HIGH)  
-        time.sleep(1)  
-        GPIO.output (22,GPIO.LOW)  
-        GPIO.output (23,GPIO.HIGH)  
-        print "Bite gehen"  
-        time.sleep(5)  
-        print "Bitte nicht mehr gehen"  
-        GPIO.output (23,GPIO.LOW)  
-        GPIO.output (22,GPIO.HIGH)  
-        time.sleep(1)  
-        counter +=1  
-GPIO.cleanup()
-</code></pre>
+<code>(2,GPIO.IN)</code> definiert Pin 2 als Eingang. Das gegegebn kann man mit der Funktion <code>if GPIO.input(2) == GPIO.HIGH</code> und einem Schlater eine Ampel bauen. Mit <code>print "text"</code> können die einzelnen Schritte in der Konsole beschrieben werden, um ein debugging möglich machen kann. Hier ein Beispiel für eine <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/Ampel.py">Ampelschaltung</a>.
 
 <h2 id="Gertboard"> 4. Gertboard </h2>
 ![Gertboard Real](https://github.com/JayWee/Gertboard-Tutorial/blob/master/gertboard_real.png)
 <h3 id="Einführung"> Einführung </h3>
-Das Gertboard von element14 ist ein Erweiterungsboard für alle Versionen des Raspberry Pi. Das Gertboard ist für 26 GPIO-Pins gemacht, passt also perfekt auf die Pins des Raspberry Pi 1 und anderer Modelle des Models A. Bei den B Medelen dagegen sind auf dem Pi 14 Pins mehr, als mit dem Gertboard verbunden werden können.  <br />
+Das Gertboard von element14 ist ein Erweiterungsboard für alle Versionen des Raspberry Pi. Das Gertboard ist für 26 GPIO-Pins gemacht, passt also perfekt auf die Pins des Raspberry Pi 1 und anderer Versionen des Modells A. Bei den B Modellen dagegen sind auf dem Pi 14 Pins mehr, als mit dem Gertboard verbunden werden können.  <br />
 Das Gertboard ist mit s. g. Buffern ausgestattet. Diese schützen den Pi bei der benutzung der GPIO-Pins vor Kurzschlüssen. Weiterhin sind auf dem Gertboard noch anschlüsse für eine externe Energiequelle, um Motoren, die eine höhere Spannung brauchen als der Pi liefern kann (3,3V bzw. 5V), mit dem Pi zu betreiben.  
 
 <h4 id="Aufbau">Aufbau</h4> 
@@ -294,23 +251,23 @@ Zusätzlich zu diesen Blöcken gibt es noch die Dauerstrom-Pins (3,3V bzw. 5V).
 <h5>Aufbau der einzelnen Blöcke</h5> 
 Die Platine des Gertboards ist weiß beschriftet. Auf der folgenden Schematik sind nur die Beschriftung und die einzelnen Pins dargestellt: <br /> 
  <img src="https://github.com/JayWee/Gertboard-Tutorial/blob/master/gertboard_shematic.png?raw=true" alt="Gertboard Schematisch"> <br />
-Blöcke von mehreren Pins sind (Ausgenommen derer in dem Buffer-Block) mit "Jn" (n ist eine natürliche Zahl) beschriftet. Alle Chips auf der Platine sind mit "Un" beschriftet.  <br />
-Ganz unten liegt J1. Dies ist die Verbindung zum Pi. Knapp dadrüber liegt J2. Die Pins in diesem Block sind direkt mit den GPIO-Pins des Pi verbunden. <br />
-Weiter wichtig für dieses Tutorial sind die Chips U3-U5. Dies sind die oben genannten Buffer. Ober- und Unterhalb dieser liegen jeweils 8 Pins. Diese sind zur Bestimmung des Modus (Input/Output) gedacht und deshalb mit *out* oder *in* beschrieben. Der Block J3 ist der Eingang zu den Buffern. Die Pins beschriftet mit BUF1-12 sind die Input-Eingänge der Buffer. Zusätzlich zu diesen Input-Pins ist an jeden Buffer-Pin noch eine LED geschaltet und dies ersten drei Buffer Pins (B1-3) sind mit den drei Knöpfen noch verbunden.<br />
-Die eben schon erwähnten Dauerstrom-Pins befinden sich in den kleine Böcken J7, J27 und oben links in der Ecke nur 3V3 beschriftet. <br />
+Blöcke von mehreren Pins sind (Ausgenommen derer in dem Buffer-Block) mit <em>Jn</em> (n ist eine natürliche Zahl) beschriftet. Alle Chips auf der Platine sind mit "Un" beschriftet.  <br />
+Ganz unten liegt <em>J1</em>. Dies ist die Verbindung zum Pi. Knapp dadrüber liegt <em>J2</em>. Die Pins in diesem Block sind direkt mit den GPIO-Pins des Pi verbunden. <br />
+Weiter wichtig für dieses Tutorial sind die Chips U3-U5. Dies sind die oben genannten Buffer. Ober- und Unterhalb dieser liegen jeweils 8 Pins. Diese sind zur Bestimmung des Modus (Input/Output) gedacht und deshalb mit <em>out</em> oder <em>in</em> beschrieben. Der Block <em>J3</em> ist der Eingang zu den Buffern. Die Pins beschriftet mit <em>BUF1-12</em> sind die Input-Eingänge der Buffer. Zusätzlich zu diesen Input-Pins ist an jeden Buffer-Pin noch eine LED geschaltet und dies ersten drei Buffer Pins (<em>B1-3</em>) sind mit den drei Knöpfen noch verbunden.<br />
+Die eben schon erwähnten Dauerstrom-Pins befinden sich in den kleine Böcken <em>J7, J27</em> und oben links in der Ecke nur <em>3V3</em> beschriftet. <br />
 
 <h4 id="Buffer">Nutzung der Buffer</h4>
 
 <h4> Verbindung mit dem Pi </h4>
-Um das Gertboard mit dem Raspberry Pi zu verbinden, muss das Gertboard auf die linken (Der Pi ist so gedreht, dass die Pins oben links liegen) 26 GPIO-Pins gesteckt werden. Bei B Modelen des Pi sind somit die vierzehn rechten Pins nicht mit dem Gertboard verbunden und auf sie kann somit nicht auf dem Gertboard zugegriffen werden. Damit die Buffer-Ausgänge auch Signale senden können müssen bei J7 (3,3V Dauerstrom) zwei der drei Pins miteinander Verbunden werden (am besten mit einem [Jumper](https://github.com/JayWee/Gertboard-Tutorial/blob/master/Shunt-Jumpers2-1383815114.jpg)).    <!---(Für die, die es interessiert: [Warum hier](#10)) -->  
+Um das Gertboard mit dem Raspberry Pi zu verbinden, muss das Gertboard auf die linken (Der Pi ist so gedreht, dass die Pins oben links liegen) 26 GPIO-Pins gesteckt werden. Bei B Modelen des Pi sind somit die vierzehn rechten Pins nicht mit dem Gertboard verbunden und auf sie kann somit nicht auf dem Gertboard zugegriffen werden. Damit die Buffer-Ausgänge auch Signale senden können müssen bei <em>J7</em> (3,3V Dauerstrom) zwei der drei Pins miteinander Verbunden werden (am besten mit einem <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/Shunt-Jumpers2-1383815114.jpg">Jumper</a>).    <!---(Für die, die es interessiert: [Warum hier](#10)) -->  
 
 <h4> Arbeiten mit den LEDs und den Druckknöpfen über die Buffer </h4>
-Um auf die LEDs zuzugreifen muss erstmal eine Verbindung zwischen den GPIO-Pins (J2) und den Buffer-Eingangs-Pins (J3) hergestellt werden. Jetzt sollten alle LEDs rot leuchten.  <br />
-Dann muss der Hardware gesagt werden wie welcher Bufferpin genutzt werden soll (Input/Output). Dafür müssen bei einem Output die beiden Pins, die mit "Bx out" (x ist die Nummer des gewählten Buffereingangs) beschriftet sind, am besten mit einem Jumper verbunden werden. Beim Aufstecken der Jumper, sollte die entsprechende LED ausgehen. Falls nicht, sollte dies spätestens beim starten des Programms passieren.  <br />
-Um die Druckknöpfe zu verwenden, muss man über B1-3 darauf zugreifen und entgegen der Tatsache, dass es sich um einen Input handelt, auch einen Jumper bei "Bx out" plazieren (Im Programm müssen die entsprechenden GPIO-Pinsallerdings auf Input gestellt sein). Auf die LEDs der benutzten Knöpfe kann dann nicht mehr zugegriffen werden. Diese Leuchten jetzt beim Starten des Programms. Wenn dann einer der Knöpfe gedrückt wird, geht die entsprechende LED beim Gedrückt sein aus und beim Loslassen wieder an.
+    Um auf die LEDs zuzugreifen muss erstmal eine Verbindung zwischen den GPIO-Pins (<em>J2</em>) und den Buffer-Eingangs-Pins (<em>J3</em>) hergestellt werden. Jetzt sollten alle LEDs rot leuchten.  <br />
+    Dann muss der Hardware gesagt werden wie welcher Bufferpin genutzt werden soll (Input/Output). Dafür müssen bei einem Output die beiden Pins, die mit <em>Bx out</em> (x ist die Nummer des gewählten Buffereingangs) beschriftet sind, am besten mit einem Jumper verbunden werden. Beim Aufstecken der Jumper, sollte die entsprechende LED ausgehen. Falls nicht, sollte dies spätestens beim starten des Programms passieren.  <br />
+    Um die Druckknöpfe zu verwenden, muss man über B1-3 darauf zugreifen und entgegen der Tatsache, dass es sich um einen Input handelt, auch einen Jumper bei <em>Bx out</em> plazieren (Im Programm müssen die entsprechenden GPIO-Pinsallerdings auf Input gestellt sein). Auf die LEDs der benutzten Knöpfe kann dann nicht mehr zugegriffen werden. Diese Leuchten jetzt beim Starten des Programms. Wenn dann einer der Knöpfe gedrückt wird, geht die entsprechende LED beim Gedrückt sein aus und beim Loslassen wieder an.
 
 <h4> Arbeiten mit externen Geräten über die Buffer </h4>
-Wenn mit externen Geräten oder LEDs gearbeitet werden soll, werden nicht beide "Bx out" Pins miteinander verbunden, sondern einer von diesen mit der externen LED. Alle Pins mit dem Senkrecht-Zeichen (umgedrehtes T) oder GND beschriftet sind können als Ground-Pin verwendet werden. Wenn ein Pin als Input genutzt werden soll, wird ein Jumper bei *Bx in* gesetzt und die Input-Quelle mit einem der BUF-Pins.
+Wenn mit externen Geräten oder LEDs gearbeitet werden soll, werden nicht beide <em>Bx out</em> Pins miteinander verbunden, sondern einer von diesen mit der externen LED. Alle Pins mit dem Senkrecht-Zeichen (umgedrehtes T) oder GND beschriftet sind können als Ground-Pin verwendet werden. Wenn ein Pin als Input genutzt werden soll, wird ein Jumper bei <em>Bx in</em> gesetzt und die Input-Quelle mit einem der BUF-Pins.
 
 <h4> Progamieren mit dem Gertboard</h4>
-
+Mit dem Gerdboard kann genauso programiert werden, wie mit einer direkten Verbindung zum Pi. Zu beachten ist nur, dass die Beschriftung der Pins in <em>J2</em> die des Pis erster Generation ist, und somit für alle nachfolgenden Pis gilt: Der mit <em>21</em> beschriftete Pin auf dem Gertboard ist im System der Pin <em>27</em>. Die Nummerierung auf dem Gertboard entspricht der Nummerierung, die der Pi intern benutzt. <br />
