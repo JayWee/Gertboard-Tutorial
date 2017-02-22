@@ -206,7 +206,7 @@ Weiterhin kann man über das selbe Menü auch die Remote Komandozeile öffnen, d
 
 
 <h3 id="C#">3.1 Erste Programme über Windows IoT Core</h3>
-Mit Windows IoT Cre kann man in diversen Sprachen seine Programme schreiben. auch hier kann man Python benutzen. Am meisten benutz wird allerdings C#. Im untertschied zu Python, welche eine Script-Sprache ist, müssen C# Programme erst Kompiliert werden, bevor sie ausgeführt werden können. In diesem Tutorial beschäftigen wir uns mit C#.<br />
+Mit Windows IoT Core kann man in diversen Sprachen seine Programme schreiben. Auch hier kann man Python benutzen. Am meisten benutz wird allerdings C#. Im untertschied zu Python, welche eine Script-Sprache ist, müssen C# Programme erst Kompiliert werden, bevor sie ausgeführt werden können. In diesem Tutorial beschäftigen wir uns mit C#.<br />
 Da dieses Tutorial sich mit einer Weiterführung von C# beschäftigt, sollte man vorher ein gennerelles Verständnis für Programiersprachen haben. Für den Einstieg in C# ist hier ein <a href="http://kushellig.de/c/">Liste von Tutorials</a> zum lernen von C#.
 
 <h4>Programieren auf Windows IoT</h4>          
@@ -258,41 +258,41 @@ Für die eben aufgezählten Bedienelemnte gilt:
         <th>Wichtige Attribute</th>
     </tr>
     <tr>
-        <td>Schalter</td><%--Element--%>
-        <td><code>ToggleSwitch</code></td><%--Befehl--%>
-        <td>Ein Schalter, der entweder den Status <em>an</em> oder <em>aus</em> haben kann</td><%--Funktion--%>
+        <td>Schalter</td><!--Element-->
+        <td><code>ToggleSwitch</code></td><!--Befehl-->
+        <td>Ein Schalter, der entweder den Status <em>an</em> oder <em>aus</em> haben kann</td><!--Funktion-->
         <td>
             <code>IsOn</code>: Ist ein <code>bool</code> und beschreibt den Status des Switches<br />
             <code>VerticalAllignement</code>: Definiert die Verticale Position des Switches
-        </td><%--Attribute--%>
+        </td><!--Attribute-->
     </tr>
     <tr>
-        <td>Button</td><%--Element--%>
-        <td><code>Button</code></td><%--Befehl--%>
-        <td>Ein Knopf, der ein Ereignis hervorrufen kann</td><%--Funktion--%>
+        <td>Button</td><!--Element-->
+        <td><code>Button</code></td><!--Befehl-->
+        <td>Ein Knopf, der ein Ereignis hervorrufen kann</td><!--Funktion-->
         <td>
             <code>Height</code>&amp;<code>Width</code>:Definiert die Höhe und Breite des Buttons<br />
             <code>Content</code>: Definiert den Text, der auf dem Button seht
-        </td><%--Attribute--%>
+        </td><!--Attribute-->
     </tr>
     <tr>
-        <td>Slider</td><%--Element--%>
-        <td><code>Slider</code></td><%--Befehl--%>
-        <td>Ein Schieberegler, der Verschiedene <code>int</code>-Werte ausgeben kann</td><%--Funktion--%>
+        <td>Slider</td><!--Element-->
+        <td><code>Slider</code></td><!--Befehl-->
+        <td>Ein Schieberegler, der Verschiedene <code>int</code>-Werte ausgeben kann</td><!--Funktion-->
         <td>
             <code>Height</code>&amp;<code>Width</code>: Definiert die Höhe und Breite des Sliders<br />
             <code>Minimum</code>&amp;<code>Maximum</code>: Definiert den Minimal- und Maximalwert des Sliders<br />
             <code>StepFrequnecy</code>: Bestimmt in welcher Schrittgröße der Slider vom Minimum zum Maximum geht
-        </td><%--Attribute--%>
+        </td><!--Attribute-->
     </tr>
     <tr>
-        <td>Textbox</td><%--Element--%>
-        <td><code>TextBlock</code></td><%--Befehl--%>
-        <td>Ein Bereich, in dem ein Text steht</td><%--Funktion--%>
+        <td>Textbox</td><!--Element-->
+        <td><code>TextBlock</code></td><!--Befehl-->
+        <td>Ein Bereich, in dem ein Text steht</td><!--Funktion-->
         <td>
             <code>Text</code>: Deffiniert den dargestellten Text<br />
             <code>Height</code>&amp;<code>Width</code>: Definiert die Höhe und Breite der Textbox 
-        </td><%--Attribute--%>
+        </td><!--Attribute-->
     </tr>
 </table><br />
 Umfassend braucht man noch ein s.g. <code>StackPanel</code>. Dieses Sorgt dafür, dass alle Objekte in diesem Panel zusammen Gruppiert werden. Durch die Attribute <code>HorizontalAllignement</code> und <code>VerticalAllignement</code> kann die generelle Position im Raum bestimmt werden. Die beiden letztgenannten Atribute können auch auf jedes Objekt einzeln angewendet werden.<br />
