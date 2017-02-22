@@ -156,7 +156,7 @@ while (count < x):
 </code></pre>
 darunter dann den Inhalt der Schleife setzen. Diese ist jetzt unendlich. Wenn man ans Ende ein <code>counter += 1</code> setzt wird der Counter nach jeden Durchlauf um 1 erhöht und das Programm endet nach x Durchläufen. 
 
-<code>(2,GPIO.IN)</code> definiert Pin 2 als Eingang. Das gegegebn kann man mit der Funktion <code>if GPIO.input(2) == GPIO.HIGH</code> und einem Schlater eine Ampel bauen. Mit <code>print "text"</code> können die einzelnen Schritte in der Konsole beschrieben werden, um ein debugging möglich machen kann. Hier ein Beispiel für eine <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/Ampel.py">Ampelschaltung</a>.
+<code>(2,GPIO.IN)</code> definiert Pin 2 als Eingang. Das gegegebn kann man mit der Funktion <code>if GPIO.input(2) == GPIO.HIGH</code> und einem Schlater eine Ampel bauen. Mit <code>print "text"</code> können die einzelnen Schritte in der Konsole beschrieben werden, um ein debugging möglich machen kann. Hier ein Beispiel für eine <a href="https://github.com/JayWee/Gertboard-Tutorial/blob/master/AMPEL.py">Ampelschaltung</a>.
 
 
 <h2 id="Windows">
@@ -214,11 +214,92 @@ Für das Schreiben von Programmen auf Windows IoT empfielt sich <a href="https:/
 <h5>Erstellen eines Projektes</h5>
 Wenn man dann Visual Studio öffnet, klickt man auf der Startseite unter dem Punkt <em>Start</em> auf <em>Neues Projekt</em>. Dann unter <em>Templates/Visual C#/Windows/Universal</em> auf <em>Blank App (Universal Windows)</em> und benennet sein Projekt in der Zeile Name. <br />
 In dem Fenster, dass man dann öffnet, kann man die Windowsversionen, für die das Programm geschrieben werdens soll auswählen. Die voreingestellten Versionen kann man so lassen. So funktioniert das Programm auf den meisten geräten mit Windows 10. Das besondere an Windows Universial Programmen ist, dass diese auf wirklich jedem Windows 10 Gerät funktionieren, also auf dem eigenen Standrechner, dem Laptop, dem Windows-phone und natürlich auch auf dem Raspberry Pi mit Windows IoT Core.
-<h5>Erste Programme</h5>
-Als erstes öffnet sich nach dem Erstellen eines neuen Projektes in Visual Studio die Datei <em>App.xaml.cs</em>. Diese ist erstmal irrelevant. Durch Doppelklicken wird die Datei <em>MainPage.xaml.cs</em> unter dem Reiter <em>MainPage.xaml</em> geöffnet.
+<h5>Erstes Programm (Zugriff auf den GPIO-Controller)</h5>
+Als erstes öffnet sich nach dem Erstellen eines neuen Projektes in Visual Studio die Datei <em>App.xaml.cs</em>. Diese ist erstmal irrelevant. Durch Doppelklicken wird die Datei <em>MainPage.xaml.cs</em> unter dem Reiter <em>MainPage.xaml</em> geöffnet. <br />
+<p>Um die Befehle zum zugreifen auf den GPIO-Contorller zu laden, muss am Anfang der Code-Datei das Namespace <code>Windows.Devices.Gpio</code> hinzugefügt werden. <br />
+Als erstes muss dann der GPIO-Pin, den man benutzen möchte, initialisiert werden. <br />
+<pre>
+    <code>
+private GpioPin led;
 
+private void InitGpio()
+{
+    var gpio = GpioController.GetDefault();
 
+    if (gpio == null)
+    {
+        led= null;
+        return;
+    }
 
+    led = gpio.OpenPin(17);
+    led.SetDriveMode(GpioPinDriveMode.Output);
+    led.Write(GpioPinValue.Low);
+}
+    </code>
+</pre>
+In der ersten Zeile wird zuerst eine Varbiable des Typs <code>GpioPin</code> erstellt. <br />
+Mit <code>GpioController.GetDefault();</code> erhält man den GPIO-Controller. <br />
+Für die Initialisierung eines GPIO-Pins muss man zuerst den entsprechenden Pin öffnen. Dies geschieht mit dem Befehl <code>gpio.OpenPin()</code>. In der Klammer wird der zu öffnende Pin gesetzt. Dies kann entweder direkt mit einer Zahl des Typs <code>int</code> geschehen, oder mit einer konstanten Variablen des Typs <code>int</code>.<br />
+Mit dem Befahl <code>SetDriveMode(GpioPinDriveMode.Output)</code> wird dem GPIO-Pin ein Benutzungsmodus zugeteilt. Mögliche Modi sind unteranderem <code>Output, Input, InputPullUp</code> oder <code> InputPullDown</code>.<br />
+Schließlich wird dem Pin gesagt, ob er an sein soll, oder nicht. Dies geschieht mit dem Befahl <code>Write(GpioPinValue.Low)</code>(Der Pin gibt keinen Strom aus) oder <code>Write(GpioPinValue.High)</code>(Der Pin gibt Strom aus). Im restlichen Programm kann nach dem Initialisieren mit den gleichen Befehlen der Pin an- oder ausgeschaltet werden.<br />
+Das vollständige Beispielprogramm findet ihr <a href="https://github.com/JayWee/LEDBlink">hier</a>.
+</p>
+<h5>Nutzung des UI (<em>User Interface</em>)</h5>
+Alle Universial Windows Fordergrundprogramme besitzen ein UI. Dieses wird in der Datei MainPage.xaml definiert. Diese Datei ist in der Markupsprache XAML geschrieben. <br />
+In dieser Datei kann man verschiedene Bedienelemente für sein Programm hinzufügen, wie Schalter, Buttons oder Schieberegler. Ebeso kann man hier über Textboxen Text ausgeben. <br />
+Diese Objekte werden über Tags erstellt. Diese müssen zwischen den Tags <code>&lt;grid&lt;</code> und <code>&lt;/grid&lt;</code> stehen. <br />
+Für die eben aufgezählten Bedienelemnte gilt:
+<table>
+    <tr>
+        <th>UI-Element</th>
+        <th>XAML-Befehl</th>
+        <th>Funktion</th>
+        <th>Wichtige Attribute</th>
+    </tr>
+    <tr>
+        <td>Schalter</td><%--Element--%>
+        <td><code>ToggleSwitch</code></td><%--Befehl--%>
+        <td>Ein Schalter, der entweder den Status <em>an</em> oder <em>aus</em> haben kann</td><%--Funktion--%>
+        <td>
+            <code>IsOn</code>: Ist ein <code>bool</code> und beschreibt den Status des Switches<br />
+            <code>VerticalAllignement</code>: Definiert die Verticale Position des Switches
+        </td><%--Attribute--%>
+    </tr>
+    <tr>
+        <td>Button</td><%--Element--%>
+        <td><code>Button</code></td><%--Befehl--%>
+        <td>Ein Knopf, der ein Ereignis hervorrufen kann</td><%--Funktion--%>
+        <td>
+            <code>Height</code>&amp;<code>Width</code>:Definiert die Höhe und Breite des Buttons<br />
+            <code>Content</code>: Definiert den Text, der auf dem Button seht
+        </td><%--Attribute--%>
+    </tr>
+    <tr>
+        <td>Slider</td><%--Element--%>
+        <td><code>Slider</code></td><%--Befehl--%>
+        <td>Ein Schieberegler, der Verschiedene <code>int</code>-Werte ausgeben kann</td><%--Funktion--%>
+        <td>
+            <code>Height</code>&amp;<code>Width</code>: Definiert die Höhe und Breite des Sliders<br />
+            <code>Minimum</code>&amp;<code>Maximum</code>: Definiert den Minimal- und Maximalwert des Sliders<br />
+            <code>StepFrequnecy</code>: Bestimmt in welcher Schrittgröße der Slider vom Minimum zum Maximum geht
+        </td><%--Attribute--%>
+    </tr>
+    <tr>
+        <td>Textbox</td><%--Element--%>
+        <td><code>TextBlock</code></td><%--Befehl--%>
+        <td>Ein Bereich, in dem ein Text steht</td><%--Funktion--%>
+        <td>
+            <code>Text</code>: Deffiniert den dargestellten Text<br />
+            <code>Height</code>&amp;<code>Width</code>: Definiert die Höhe und Breite der Textbox 
+        </td><%--Attribute--%>
+    </tr>
+</table><br />
+Umfassend braucht man noch ein s.g. <code>StackPanel</code>. Dieses Sorgt dafür, dass alle Objekte in diesem Panel zusammen Gruppiert werden. Durch die Attribute <code>HorizontalAllignement</code> und <code>VerticalAllignement</code> kann die generelle Position im Raum bestimmt werden. Die beiden letztgenannten Atribute können auch auf jedes Objekt einzeln angewendet werden.<br />
+Ein weiteres Attribut, dass für den Aufbau des Panels wichtig ist, ist <code>Margin</code>. Mit diesem Attribut kann ein Rand um das Objekt bestimmt werden. Entweder gibt man nur eine Zahl im Margin an, dann gilt diese für alle Seiten, oder man gibt vier Zahlen an, die die jeweiligen Seiten von links im Uhrzeigersinn um das Objekt herum darstellen.<br />
+Die hier enthaltenen Objekte sind nur einige wenige, aber die für den generellen gebrauch mit dem GPIO-Controller die sinnvollsten, die man mit <em>XAML</em> erstellen kann.<br />
+Die Interaktion mit diesen Objekten passiert via Handler im zugehörigen C#-Code. <br />
+<a href="https://github.com/JayWee/UI/">Hier</a> noch ein Beispiel mit allen aufgeführten Objekten in Benutzung. 
 
 
 <h2 id="Gertboard"> 4. Gertboard </h2>
@@ -256,5 +337,6 @@ Um die Druckknöpfe zu verwenden, muss man über B1-3 darauf zugreifen und entge
 <h4> Arbeiten mit externen Geräten über die Buffer </h4>
 Wenn mit externen Geräten oder LEDs gearbeitet werden soll, werden nicht beide <em>Bx out</em> Pins miteinander verbunden, sondern einer von diesen mit der externen LED. Alle Pins mit dem Senkrecht-Zeichen (umgedrehtes T) oder GND beschriftet sind können als Ground-Pin verwendet werden. Wenn ein Pin als Input genutzt werden soll, wird ein Jumper bei <em>Bx in</em> gesetzt und die Input-Quelle mit einem der BUF-Pins.
 
-<h4> Progamieren mit dem Gertboard</h4>
+<h4 id="Program"> Progamieren mit dem Gertboard</h4>
 Mit dem Gerdboard kann genauso programiert werden, wie mit einer direkten Verbindung zum Pi. Zu beachten ist nur, dass die Beschriftung der Pins in <em>J2</em> die des Pi erster Generation ist, und somit für alle nachfolgenden Pi gilt: Der mit <em>21</em> beschriftete Pin auf dem Gertboard ist im System der Pin <em>27</em>. Die Nummerierung auf dem Gertboard entspricht der Nummerierung, die der Pi intern benutzt. <br />
+<a href="https://github.com/JayWee/GertboardTest">Hier</a> zwei Beispiele für eine LED-Steuerung auf dem Gertboard.
