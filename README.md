@@ -1,4 +1,4 @@
-          <h2 id="Einleitung">Einleitung</h2>
+<h2 id="Einleitung">Einleitung</h2>
 
 <p>Der Raspberry Pi ist ein Mini-Computer, der vieles von dem, was ein normaler Computer auch kann: Er hat eine graphische Oberfläche, einen Internetbrowser und andere Programme. <br />
 Es gibt aktuell drei Versionen des Pi, die Funktionen sind größtenteils gleich. Das neueste Modell (<a href="https://www.rasppishop.de/Raspberry-Pi-3-Modell-B-mit-12-GHz-QuadCore-64Bit-CPU">Raspberry Pi 3 Modell B</a>) hat auch WLAN und Bluetooth an Board.</p>
@@ -210,8 +210,8 @@ Da dieses Tutorial sich mit einer Weiterführung von C# beschäftigt, sollte man
 <p>Wenn man dann Visual Studio öffnet, klickt man auf der Startseite unter dem Punkt <em>Start</em> auf <em>Neues Projekt</em>. Dann unter <em>Templates/Visual C#/Windows/Universal</em> auf <em>Blank App (Universal Windows)</em> und benennet sein Projekt in der Zeile Name. <br />
 In dem Fenster, dass man dann öffnet, kann man die Windowsversionen, für die das Programm geschrieben werdens soll auswählen. Die voreingestellten Versionen kann man so lassen. So funktioniert das Programm auf den meisten geräten mit Windows 10. Das besondere an Windows Universial Programmen ist, dass diese auf wirklich jedem Windows 10 Gerät funktionieren, also auf dem eigenen Standrechner, dem Laptop, dem Windows-phone und natürlich auch auf dem Raspberry Pi mit Windows IoT Core.</p>
 <h5>Erstes Programm (Zugriff auf den GPIO-Controller)</h5>
-<p>Als erstes öffnet sich nach dem Erstellen eines neuen Projektes in Visual Studio die Datei <em>App.xaml.cs</em>. Diese ist erstmal irrelevant. Durch Doppelklicken wird die Datei <em>MainPage.xaml.cs</em> unter dem Reiter <em>MainPage.xaml</em> geöffnet. <br /></p>
-<p>Um die Befehle zum zugreifen auf den GPIO-Contorller zu laden, muss am Anfang der Code-Datei das Namespace <code>Windows.Devices.Gpio</code> hinzugefügt werden. <br />
+<p>Als erstes öffnet sich nach dem Erstellen eines neuen Projektes in Visual Studio die Datei <em>App.xaml.cs</em>. Diese ist erstmal irrelevant. Durch Doppelklicken wird die Datei <em>MainPage.xaml.cs</em> unter dem Reiter <em>MainPage.xaml</em> geöffnet. <br />
+Um die Befehle zum zugreifen auf den GPIO-Contorller zu laden, muss am Anfang der Code-Datei das Namespace <code>Windows.Devices.Gpio</code> hinzugefügt werden. <br />
 Als erstes muss dann der GPIO-Pin, den man benutzen möchte, initialisiert werden. <br />
 <pre>
     <code>
@@ -244,7 +244,7 @@ Das vollständige Beispielprogramm findet ihr <a href="https://github.com/JayWee
 <p>Alle Universial Windows Fordergrundprogramme besitzen ein UI. Dieses wird in der Datei MainPage.xaml definiert. Diese Datei ist in der Markupsprache XAML geschrieben. <br />
 In dieser Datei kann man verschiedene Bedienelemente für sein Programm hinzufügen, wie Schalter, Buttons oder Schieberegler. Ebeso kann man hier über Textboxen Text ausgeben. <br />
 Diese Objekte werden über Tags erstellt. Diese müssen zwischen den Tags <code>&lt;grid&lt;</code> und <code>&lt;/grid&lt;</code> stehen. <br />
-Für die eben aufgezählten Bedienelemnte gilt:</p>
+Für die eben aufgezählten Bedienelemnte gilt:
 <table>
     <tr>
         <th>UI-Element</th>
@@ -290,7 +290,7 @@ Für die eben aufgezählten Bedienelemnte gilt:</p>
         </td><!--Attribute-->
     </tr>
 </table>
-<p><br />
+<br />
 Umfassend braucht man noch ein s.g. <code>StackPanel</code>. Dieses Sorgt dafür, dass alle Objekte in diesem Panel zusammen Gruppiert werden. Durch die Attribute <code>HorizontalAllignement</code> und <code>VerticalAllignement</code> kann die generelle Position im Raum bestimmt werden. Die beiden letztgenannten Atribute können auch auf jedes Objekt einzeln angewendet werden.<br />
 Ein weiteres Attribut, dass für den Aufbau des Panels wichtig ist, ist <code>Margin</code>. Mit diesem Attribut kann ein Rand um das Objekt bestimmt werden. Entweder gibt man nur eine Zahl im Margin an, dann gilt diese für alle Seiten, oder man gibt vier Zahlen an, die die jeweiligen Seiten von links im Uhrzeigersinn um das Objekt herum darstellen.<br />
 Die hier enthaltenen Objekte sind nur einige wenige, aber die für den generellen gebrauch mit dem GPIO-Controller die sinnvollsten, die man mit <em>XAML</em> erstellen kann.<br />
